@@ -1,6 +1,10 @@
 Challenge #6 University Of Oregon Bootcamp
 Server-Side APIs Challenge: Weather Dashboard
 
+Welcome to Weather App Deluxe, search a location to find anticipated weather!
+
+
+
 ## User Story
 
 ```
