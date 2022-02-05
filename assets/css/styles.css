@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 :root {
@@ -10,13 +11,8 @@
 --tertiary: #93E9BE;
 }
 
-* {
-    box-sizing: border-box;
-  }
-
-  html,
-body {
-  min-height: 100%;
+app-title {
+    color:#FF7F50;
 }
 
 body {
@@ -26,16 +22,12 @@ body {
     line-height: 1.5;
     font-size: 18px;
     letter-spacing: 0.1em;
-    background: var(--dark);
-    color: var(--light);
-    font-family: 'Poiret One', cursive;
   }
 
 app-title {
     text-align: center;
     padding: 15px;
     color: var(--tertiary);
-    font-family: 'Arvo', serif;
 }
 
 .navbar-nav {
@@ -51,14 +43,7 @@ nav {
     max-width: 100%;
 }
 
-/* .button.btn.btn-primary.p-2 {
-    padding: 5px;
-    cursor: pointer;
-    transition: all 0.5s;
-    color: var(--tertiary);
-} */
-
-button {
+button.bt.btn-primary.p-2 {
     font-size: 1rem;
     text-decoration: none;
     padding: 0.25rem 1rem;
@@ -72,6 +57,7 @@ button {
 
 .card {
     border: solid black 1px;
+    background-color: #93E9BE;
 }
 
 #five-day-forecast {
@@ -84,12 +70,12 @@ button {
     border: solid black .5px;
     padding: 20px;
     display: none;
-    max-width: 100;
+    max-width: 90;
 }
 
 #search-square {
-    line-height: 1.6;
-    border-bottom: solid Gainsboro 2px;
+    line-height: 2.5;
+    border-bottom: solid 4px;
 }
 
 #past-search {
@@ -97,6 +83,3 @@ button {
     flex-direction: column;
 }
 
-#user-form {
-    justify-content: space-evenly;
-}
