@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather App!</title>
 </head>
@@ -12,26 +13,47 @@
     <body class="flex-column min-100-vh">
         <header class="hero">
           <h1 class="app-title"><i class="fa fa-sun-o" aria-hidden="true"></i>Weather App Deluxe<i class="fa fa-bolt" aria-hidden="true"></i></h1>
-          <p>Welcome to Weather App Deluxe-built by MT! Search a desired area to get full weather report!
+          <p>Welcome to Weather App Deluxe-built by MT Designs! Search a desired city to get full weather report!
           </p>
+          
         </header>
-    <main class="flex-row justify-space-between">
-        <div class="col-12 col-md-4">
+        <section class="search-and-forecast-container">
+
+            <div class="row m-1">
+                <div id="search-square" class="col-md-3">
+                    <h3>Search for a city:</h3>
+                    <form id="user-form" class="">
+                        <input id="cityname" class="form-control" type="text" placeholder="Brookings"
+                            aria-label="default input example">
+                        <div class="d-grid gap-2">
+                            <br>
+                            <button class="btn btn-primary p-2" type="submit">Search</button>
+                            <br>
+                        </div>
+                    </form>
+                </div>
     
-          <div class="card">
-            <h3 class="card-header text-uppercase">Search By Area</h3>
-            <form id="user-form" class="card-body">
-              <label class="form-label" for="area">Search</label>
-              <input name="username" id="username" type="text" autofocus="true" class="form-input" />
-              <button type="submit" class="btn">Get User</button>
-            </form>
-          </div>
+                <div id="forecast-box" class="col-md-9 current-weather">
+                    <h2><span id="city-search-term"></span></h2>
+                    <div id="forecast-container"></div>
+                </div>
     
-        </div>
-      </div>
+        </section>
     
-        </div>
+        <section class="past-search-and-five-day">
+    
+            <div class="row m-2">
+                <div id="past-search" class="col-md-3 gap-2"></div>
+                <div id="five-day-forecast" class="col-md-9 five-day-weather">
+                </div>
+            </div>
+    
+        </section>
+    
+      
         
       </main>
+
+      <script src="./assets/js/script.js"></script>
 </body>
 </html>

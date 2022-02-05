@@ -3,7 +3,7 @@ Server-Side APIs Challenge: Weather Dashboard
 
 Welcome to Weather App Deluxe, search a location to find anticipated weather!
 
-
+[Deployed Weather Application](https://mirandat77.github.io/Weather-API/)
 
 ## User Story
 
@@ -28,3 +28,6 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
+
+Created by: [Miranda Thompson](https://github.com/MirandaT77) 
+* [Contact me](ranileah7@gmail.com)
