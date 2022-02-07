@@ -1,18 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 :root {
 --primary: #000000;
 --secondary: #FF7F50;
 --tertiary: #93E9BE;
-}
-
-app-title {
-    color:#FF7F50;
 }
 
 body {
@@ -20,9 +9,13 @@ body {
     padding: 0;
     font-weight: 600;
     line-height: 1.5;
+    font-family: Helvetica;
     font-size: 18px;
-    letter-spacing: 0.1em;
+    color:var(--primary);
   }
+app-title {
+    color:var(--secondary);
+}
 
 app-title {
     text-align: center;
@@ -55,10 +48,6 @@ button.bt.btn-primary.p-2 {
     background-color: var(--secondary);
   }
 
-.card {
-    border: solid black 1px;
-    background-color: #93E9BE;
-}
 
 #five-day-forecast {
     display: flex;

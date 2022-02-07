@@ -1,3 +1,7 @@
+var searchHistory = [];
+var weatherApiRootUrl = 'https://api.openweathermap.org';
+var weatherApiKey = '9350589380da95bfd83dc5d2163f1485';
+
 var userFormEl = document.querySelector('#user-form');
 var cityInputEl = document.querySelector('#cityname');
 var forecastContainerEl = document.querySelector('#forecast-container');
@@ -7,13 +11,15 @@ var fiveDayEl = document.querySelector('#five-day-forecast')
 var forecastSquare = document.querySelector('#forecast-box')
 var cities = [];
 
-var APIKey = "9350589380da95bfd83dc5d2163f1485"
+
+// dayjs.extend(window.dayjs_plugin_utc);
+// dayjs.extend(window.dayjs_plugin_timezone);
 
 var saveCities = function () {
     localStorage.setItem("cities", JSON.stringify(cities));
 };
 
-// Function to load localStorage
+//local storage
 var loadCities = function () {
     cities = JSON.parse(localStorage.getItem('cities')) || [];
 
@@ -36,7 +42,7 @@ var loadCities = function () {
 
 var citySubmitHandler = function (event) {
     event.preventDefault();
-    // User city input
+    
     var cityName = cityInputEl.value.trim();
 
    
@@ -52,14 +58,13 @@ var citySubmitHandler = function (event) {
         cities.push(completeTask);
         saveCities()
 
-        // Button elements created to display recent searches after click event from inital city search
+        
         var savedCityButton = document.createElement('button');
         savedCityButton.textContent = savedCity;
         savedCityButton.classList.add('btn');
         savedCityButton.style.backgroundColor = 'red';
         pastSearchEl.appendChild(savedCityButton);
 
-        // Click event to display weather information from recent search buttons, before page refresh
         savedCityButton.addEventListener('click', function (event) {
             cityName = event.target.textContent;
             getCityForecasts(cityName);
@@ -74,8 +79,8 @@ var citySubmitHandler = function (event) {
 };
 
 // API accesses current weather forecasts 
-var getCityForecasts = function (city) {
-    var currentApiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey'
+var getWeather = function (cityName, getCityForecasts) {
+    var currentApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=9350589380da95bfd83dc5d2163f1485`
 
     fetch(currentApiUrl).then(function (response) {
         if (response.ok) {
@@ -91,7 +96,7 @@ var getCityForecasts = function (city) {
 
 
 var getUv = function (lat, lon) {
-    var uvApiUrl = 'https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&cnt=1'
+    var uvApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=9350589380da95bfd83dc5d2163f1485&units=imperial`
     fetch(uvApiUrl).then(function (response) {
         if (response.ok) {
             
@@ -133,7 +138,7 @@ var getUv = function (lat, lon) {
 
 // API 5-day forecast
 var getFiveDayForecast = function (city) {
-    var fiveDayApiUrl = 'https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey'
+    var fiveDayApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=9350589380da95bfd83dc5d2163f1485&units=imperial`
 
     fetch(fiveDayApiUrl).then(function (response) {
         if (response.ok) {
@@ -153,7 +158,7 @@ var displayWeather = function (weather, searchTerm) {
 
     var weatherCartoon = weather.weather[0].icon;
     var weatherImage = document.createElement('img')
-    weatherImage.src = 'https://openweathermap.org/img/w/' + weatherCartoon + '.png';
+    weatherImage.src = `http://openweathermap.org/img/wn/${weather.current.weather[0].icon}@2x.png`;
     var weatherHolder = document.createElement('span');
     weatherHolder.appendChild(weatherImage);
     
@@ -220,12 +225,7 @@ var displayFiveDay = function (weather) {
             weatherBox.appendChild(date);
 
             
-            var weatherCartoon = noon.weather[0].icon;
-            var weatherImage = document.createElement('img')
-            weatherImage.src = 'https://openweathermap.org/img/w/' + weatherCartoon + '.png';
-            var weatherHolder = document.createElement('div');
-            weatherHolder.appendChild(weatherImage);
-            weatherBox.appendChild(weatherHolder);
+
 
            
             var fiveTemp = noon.main.temp;
